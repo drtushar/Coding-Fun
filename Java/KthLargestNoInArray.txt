@@ -1,0 +1,60 @@
+package com.indus.test;
+
+/* 
+ * Enter your code here. Read input from STDIN. Print your output to STDOUT. 
+ * Your class should be named CandidateCode.
+*/
+
+import java.io.*;
+public class TestingClient {
+    
+    static BufferedReader br;
+    static int arNo;
+    static int[] ar;
+    static int k = 2;
+    public static void main(String args[] ) throws NumberFormatException, IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        arNo = Integer.parseInt(br.readLine());
+        ar = new int[arNo]; 
+        String s = br.readLine();
+        String[] items = s.split(" ");
+        int i = 0,temp;
+        for(String no : items) {
+        	temp = Integer.parseInt(no);
+        	ar[i] = temp;
+        	i++;
+        }
+        int index = partition(0,arNo-1);
+        System.out.print(ar[index]);
+   }
+   public static void swap(int a, int b){
+       int temp = ar[a];
+       ar[a] = ar[b];
+       ar[b] = temp;
+   }
+   public static int partition(int start, int end){
+       int pivot = ar[start];
+       swap(start,end);
+       int i = start , j = start;      
+       while(j != end){
+           if(ar[j]<pivot){
+               swap(i,j);
+               i++;
+           }
+           j++;
+       }
+       swap(i,end);
+       if(i==arNo-k){
+           return i;
+       }else{
+           if(arNo-k<i){
+              i = partition(start,i-1);
+              return i ;
+           }else{
+              i = partition(i+1,end);
+              return i;
+           }
+       }
+   }
+}
+
