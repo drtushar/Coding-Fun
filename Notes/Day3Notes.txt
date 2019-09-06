@@ -1,0 +1,77 @@
+* LITERALS : A constant value value which can be assigned to
+	 *            a variable. 
+	 * integral literals : we can specify literal value in the 
+	 *                     following ways 
+	 *                     1.Decimal form(base 10) : allowed 
+	 *                                               digits (0-9)
+	 *                     2.Octal form(base 8) : allowed 
+	 *                                            digits (0-7)
+	 *             literal value should be prefixed with zero.
+	 *                     3.HexaD form(b 16) : allowed digits
+	 *                                          (0-9),(a-f),(A-F)
+	 *             for extra digits a-f we can use both lower case
+	 *             and upper case this is one of very few areas 
+	 *             where java is not case sensitive.
+	 *             the literal value should be prefixed with 0x 
+	 *             or 0X. 
+	 *             these are only possible ways to specify literal
+	 *             value for integral Data types.
+	 *   JVM is always going to provide answer in decimal form.
+	 *   By default every integral literal is of int type but we
+	 *   can specify long type by using letter l or L after it.
+	 *    
+	 *   Floating literals : suffix float with f or F since every
+	 *   floating point literal is of double type hence can't
+	 *   assign directly to float type.
+	 *   
+	 *   double d = 123.456D //valid but this is not required.
+	 *   double d = 0123.456 //valid : considered integer.
+	 *   double d = ox123.45 // CE : mal formed floating point.
+	 *   ****************************************
+	 *   double d = 07899 // invalid ---------------------------
+	 *   double d = oXface // valid ----------------------------
+	 *   double d = 0123.0 // valid-----------------------------
+	 *   double d = oXface.0 // invalid-------------------------
+	 *   double d = 10 //valid----------------------------------
+	 *   double d = 0777 //valid--------------------------------
+	 *   ***************************************
+	 *   WE CANT ASSIGN FLOATING LITERAL TO INTEGRAL TYPES.
+	 *   SINCE IT WILL BE LOSS OF PRECISION.
+	 *   
+	 *   Boolean literals : Only allowed values are true or false.
+	 *   
+	 *   Char literal : char ch = 'a';//valid
+	 *                  char ch = "a" //invalid considered as string
+	 *                  char ch ='ab' //invalid
+	 *   we can speciy char literal as integral literal which 
+	 *   represents unicode value of the character and that 
+	 *   integral literal can be specified in either in octal,
+	 *   decimal or hexa forms but allowed range is o-65535.
+	 *     
+	 *                   char ch = 97 //valid
+	 *   
+	 *   String literals : Any sequence of characters within " "
+	 *                     is treated as string literals.
+	 *                     
+	 *   Binary literals : int x = ob1111; or oB1111;
+	 *                     for integral data types until 1.6 
+	 *                     version we can specify literal values
+	 *                     in following ways
+	 *                     1.decimal
+	 *                     2.octal
+	 *                     3.hexad
+	 *                     but from 1.7 version onwards we can 
+	 *                     specify in binary form also.
+	 *                     Even usage of underscore is allowed
+	 *                     in literals but only btw digits.
+	 *                     but double d = _1_23_.4_5_ //invalid
+	 *                     double d = 1_23.4_5_ //invalid
+	 *                     double d = 1_23_.4_5 //invalid
+	 ******************************************
+	 *    1        2      4     8       4        8
+	 *  byte--->short--->int--->long--->float--->double                                     
+	 *                    |
+	 *                    |
+	 *                   char 
+	 *                    2                                                                       
+	 *****************************************

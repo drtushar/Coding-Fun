@@ -1,0 +1,154 @@
+ * 
+ *   TYPES OF VARIABLES : 
+ *   DIVISION 1 : Based on type of value represented by a variable
+ *                all variables are divided into 2 types ...
+ *                1.Primitive variables.
+ *                2.Reference variables.
+ *   Primitive variables : Can be used to represent primitive 
+ *                         values.
+ *   Reference variable : Can be used to refer objects.
+ *                        Example : Student s = new Student[];
+ *   DIVISION 2 : Based on position of declaration and behaviour:
+ *                1.Instance variable.
+ *                2.Static variable.
+ *                3.Local variable.
+ *   INSTANCE VARIABLES : If the value of a variable is varied
+ *                        from object to object, such type of 
+ *                        variables are called instance variable.
+ *                        For every object a separate copy of 
+ *                        instance variables will be created.
+ *                        
+ *                        Instance variables should be declared
+ *                        within the class directly but outside
+ *                        of any method or block or constructor.
+ *                        
+ *                        Instance variable will be created at the
+ *                        time of object creation and destroyed at
+ *                        the time of object destruction.hence scope
+ *                        of Instance variable is exactly same as 
+ *                        object.                                                                                                           
+ *                         
+ *                        Instance variable will be stored in the
+ *                        heap memory as the part of object.
+ *                        
+ *                        We can't access instance variables directly
+ *                        from static area but we can access by using 
+ *                        object reference. But we can access IV 
+ *                        directly from instance area.
+ *                        class Test
+ *                        {
+ *                           int x = 10;//Instance variable.
+ *                           Public static void main(String[] a)
+ *                           { 
+ *                             Test t = new Test();
+ *                             sopln(t.x);
+ *                           }
+ *                           public void ma()
+ *                           {
+ *                              sopln(x);
+ *                           }
+ *                         } 
+ *    For IV JVM will always provide default value and we are 
+ *    not required to perform initialization explicitly.
+ *    For int - 0 ,string - null,double - 0.0,boolean - false                     
+ *    IV are also known as object level variables or attributes
+ *     
+ *    STATIC VARIABLES(SV) : If the value of the variable is not 
+ *                           varied from object to object than it
+ *                           is not recommended to declare variable
+ *                           as IV we have to declare such type of
+ *                           variables at class level by using 
+ *                           static modifier.
+ *                           In the case of IV for every object a 
+ *                           separate copy will be created but in 
+ *                           the case of SV a single copy will be
+ *                           created at class level and shared by 
+ *                           every object of the class.
+ *                           They should be declared as IV within
+ *                           the class.
+ *                           SV will be created at the time of 
+ *                           class loading and destroyed at the
+ *                           time of class unloading.
+ *                           SV will be stored in method area.
+ *                           We can access static variable either 
+ *                           by object reference or class name but
+ *                           recommended to use class name. within
+ *                           the same class it is not required to
+ *                           use class name and we can access 
+ *                           directly. 
+ *              class Test
+ *              {
+ *                  static int x =10;
+ *                  p s v main(s[] a)
+ *                  {
+ *                     Test t = new Test();
+ *                     sopln(t.x);//valid
+ *                     sopln(Test.x);//valid but recommended
+ *                     sopln(x)//valid
+ *                  }
+ *                  public void s()
+ *	                {
+ * **VALID**            MainMethod m = new MainMethod();
+ *		                System.out.println(m.x);
+ *		                System.out.println(MainMethod.x);
+ *		                System.out.println(x);
+ *	                }
+ *              }
+ * DEFAULT VALUES WILL BE PROVIDED BY JVM AS IN CASE OF IV.                                                  
+ *                         
+ *     SV are also known as class level variables or fields.
+ *                         
+ *  LOCAL VARIABLES : Sometimes to meet temporary requirements
+ *                    of a programmer we can declare variables
+ *                    inside a method or block or constructor
+ *                    such type of variables are called local/
+ *                    temporary/stack/automatic variables.
+ *                    LV will be stored inside stack memory.
+ *                    LV will be created while executing the 
+ *                    block in which we declared it , once block
+ *                    execution completes LV will be destroyed.
+ *                                                               
+ *    FOR LV JVM WON'T PROVIDE DEFAULT VALUES. 
+ *    class test
+ *    {
+ *      public/private/default/protected int x=10;
+ *      p s v m (S[] a)
+ *      {
+ *        int z=30;//scope of local variable is fixed, so we 
+ *                 //can only use modifier final and no any
+ *                 //other modifier like public/private/default/
+ *                 //protected/static/transient/volatile
+ *                 // we will get CE.         
+ *      }
+ *    }
+ *    
+ *    If we are not declaring with any modifier than by default 
+ *    it is "default" but this rule is applicable only for
+ *    instance and static variables but not for local variable.
+ *    IV and SV can be accessed by multiple threads simultaneously
+ *    and hence not thread safe,but in the case of local variable
+ *    a separate copy will be created hence local variable are
+ *    thread safe.
+ *    
+ *    Uninitialized arrays : 
+ *    class test
+ *    {
+ *      int[] x; or static int[] x;
+ *      int[] y= new int[3]; or static int[] y= new int[3];
+ *      p s v m(s[] a)
+ *      {
+ *        test t = new test();
+ *        int[] z;
+ *        sopln(z);//RE : NOT INITIALIZED
+ *        sopln(z[0]);//RE
+ *        int d = new int[3];
+ *        sopln(d); //[I-----
+ *        sopln(d[0]); //0 Once we create an array every array
+ *        // element by default initialized of default value
+ *        // irrespective of wheather it is IV ,SV or LV.
+ *        sopln(t.x);//null
+ *        sopln(t.x[0]);//RE : Null Pointer Exception
+ *        sopln(t.y);//[I------
+ *        sopln(t.y[0]);//0
+ *      }
+ *    }

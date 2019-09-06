@@ -1,0 +1,93 @@
+                 *  JAVA is NOT pure oopl because several features are not 
+	 *  satisfied by java like
+	 *  1.Operator overloading
+	 *  2.Multiple inheritance
+	 *  more over we are depending on primitive data types which 
+	 *  are non objects.
+	 *  PRIMITIVE DATA TYPES (8)
+	 *          SIGNED                     UNSIGNED Data types 
+	 *  Integral     floating-point        non-numeric
+	 *  1.byte          5.float               7.char
+	 *  2.short         6.double              8.boolean
+	 *  3.int
+	 *  4.long
+	 *  
+	 *  1.byte : size = 1 byte(8 bits)
+	 *           MSB represents sign of number 0 means +ve & 1 as -ve
+	 *           hence for left 7 bits we can represent 127 as maxvalue
+	 *           and min value of -128 in the form of 2's complement.
+	 *           range = -128 to 127
+	 *           
+	 *           byte b=128; CE : possible loss of precision
+	 *                            found : int
+	 *                            required : byte
+	 *           byte b=1.5; CE : possible loss of precision
+	 *                            found : double
+	 *                            required : byte
+	 *           byte b=true CE : incompatible types
+	 *                            found : boolean
+	 *                            required : byte
+	 *           byte b="tu" CE : incompatible types
+	 *                            found : java.lang.String
+	 *                            required : byte                                                  
+	 *  bytes is the best choice if we want to handle data in
+	 *  terms of streams either from the file or from the network
+	 *  (file supported form or network supported form is 
+	 *  of byte.)
+	 *  
+	 *  2.short : size : 2 bytes(16 bits)
+	 *            range = -2{15} to 2{15}-1
+	 *            
+	 *            short s=2{15}-1; correct
+	 *            short s=2{15}; CE : possible loss of precision
+	 *                           found : int
+	 *                           required : short
+	 *                           
+	 *  short data type is best suitable for 16 bits processors 
+	 *  but this processors are completely out-dated and so is
+	 *  short.
+	 *  
+	 *  3.int : size : 4 bytes(32 bits)
+	 *          range : -2{31} to 2{31}-1
+	 *          
+	 *          int x=2{31} CE : integer no too large
+	 *          int x=2{31}L CE : PLOP
+	 *                            found : long
+	 *                            required : int 
+	 *                            
+	 *  4.long : size : 8 bytes(64 bits)
+	 *           range : -2{63} to 2{63}-1
+	 *           
+	 *  the no of character present in a big file may go beyond
+	 *  int so return type of length method is long.
+	 *  
+	 *  ALL THE ABOVE DATA TYPES MENT FOR REPRESENTING INTEGRAL
+	 *  VALUE . IF WE WANT TO REPRESENT FLOATING POINT VALUES
+	 *  THAN WE SHOULD GO TO FLOATING POINT DATA TYPES.
+	 *  
+	 *  5.FLOAT : size : 4 bytes(32 bits)
+	 *            range : -3.4e38 to 3.4e38 
+	 *            if accuracy is upto 5 to 6 places.
+	 *            
+	 *  6.DOUBLE : size : 8 bytes(64 bits)
+	 *             range : -1.7e308 to 1.7e308
+	 *             if accuracy is upto 14 to 15 places.
+	 *             
+	 *  7.boolean : size : virtual machine dependent
+	 *              range : not applicable
+	 *              
+	 *              boolean b=True; CE : cannot find symbol
+	 *                                   symbol : variable True
+	 *                                   location : class xyz
+	 *                                   
+	 *  8.char : size : 2 bytes(16 bits)
+	 *           old languages are ascii code based and no of
+	 *           allowed different characters are 256 . To 
+	 *           represent this 256 character 1 byte is enough.
+	 *           But java is unicode based and the number of 
+	 *           different unicode character are greater than 
+	 *           256 and less than 2{15} hence we should go 
+	 *           for bigger size.
+	 *                                                                             
+	 *  null is a default value for object reference and we can't
+	 *  apply to primitives.                     

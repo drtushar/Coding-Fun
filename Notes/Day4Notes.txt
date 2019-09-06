@@ -1,0 +1,198 @@
+*   ARRAYS : Arrays are fixed in size.
+ *            Indexed Collection of fixed number of homogeneous
+ *            data elements is an array.
+ *   Array declaration 1D : int[] x or int []x or int x[] 
+ *                     2D : int[][] x;
+ *                          int [][]x;
+ *                          int[] []x;
+ *                          int x[][];
+ *                          int[] x[];
+ *                          int[] []x;
+ *                 ******************************************
+ *                 int[] []a,b; a=2 ,b=2
+ *                 int[] []a,b[]; a=2,b=3
+ *                 
+ *                 int[] []a,[]b;//invalid
+ *                 if we want to specify dimension before the variable 
+ *                 the facility is available only for first variable 
+ *                 in the declaration. if we are trying to apply 
+ *                 remaining variables we will get CE.
+ *                 
+ *                     3D : -----
+ *                     
+ *     every array in java is an object only hence we can create 
+ *     arrays by using new operator.
+ *     for every array type corresponding classes are available and
+ *     this classes are part of java language and not available
+ *     to programmer level.
+ *     Eg : int[] -------> class name [I
+ *          int[][]------> class name [[I
+ *          
+ *     At the time of array creation compulsory we should specify 
+ *     the size.
+ *      int[] x = new int[6];
+ *      SIZE OF ARRAY CAN BE ZERO IN JAVA.
+ *      
+ *      int[] x = new int[-3]; RE : negative array size exception.
+ *      we have to specify array size in int data type.
+ *      To specify Array size allowed data types are :
+ *                                             1.int
+ *                                             2.byte
+ *                                             3.short
+ *                                             4.char  
+ *      Maximum allowed array size is size of int data type.
+ *      i.e it is 2147483647
+ *      if size exceeds this no. we get integer no. too large error
+ *      
+ *  2D ARRAY CREATION : In java 2D array are not implemented 
+ *  by matrix style, they followed array of arrays approach for
+ *  multiD array creation. The main advantage of this approach is
+ *  memory utilization will be improved.     
+ *  Example 1 : [][]---->[][] & [][][]
+ *  int[][] x = new int[2][];
+ *  x[0] = new int[2];
+ *  x[1] = new int[3]; 
+ *  Example 2 : [][]->{[][][]->[]&[][]&[][][]} & {[][]->[][] & []}
+ *  int[][][] x = new int[2][][];
+ *  
+ *  x[0] = new int[3][];
+ *  x[0][0] = new int[1];
+ *  x[0][1] = new int[2];
+ *  x[0][2] = new int[3];
+ *  
+ *  x[1] = new int[2][];
+ *  x[1][0] = new int[2];
+ *  x[1][1] = new int[1];
+ *  
+ *  Which of the following are valid declarations : 
+ *  1. int[] a = new int[];//invalid-->needed base size.
+ *  2. int[] a = new int[3];//valid
+ *  3. int[][] a = new int[][];//invalid-->needed base size.
+ *  4. int[][] a = new int[3][];//valid
+ *  5. int[][] a = new int[][4];//invalid
+ *  6. int[][] a = new int[3][4];//valid--> A 3*4 matrix.
+ *  7. int[][][] a = new int[3][4][5];//valid A 3*4*5 matrix.
+ *  8. int[][][] a = new int[3][4][];//valid
+ *  9. int[][][] a = new int[3][][5];//invalid
+ * 10. int[][][] a = new int[][4][5];//invalid
+ * 
+ *  ARRAY initialization : Once we create an array every array
+ *  element initialized by default value of zero.
+ *  Whenever we are trying to print any reference variable like 
+ *  'a' internally toString() method will be called which is 
+ *  implemented by default to return the string in the following
+ *  form : class_name@hashcode_in_hexaD_form [[I@------
+ *  
+ *  int[][] x = new int[2][3];
+ *  sopln(x);             //[[I@----
+ *  sopln(x[0]);          //[I@-----
+ *  sopln(x[0][0]);         // 0
+ *  
+ *  int[][] x = new int[2][];
+ *  sopln(x);         //[[I@----
+ *  sopln(x[0]);      //null : default object reference.    
+ *  sopln(x[0][0]);   // RE : null pointer exception.
+ *
+ *
+ *  ARRAY DECLARATIONC CREATION AND INITIALIZATION IN 1 LINE :
+ *  1D
+ *  int[] x = {10,20,30};
+ *  char[] ch = {'a','e','i','o','u'};
+ *  String[] s = {"aa","abc","tushar"};                                                           
+ *  2D
+ *  int[][] x = {{10,20},{30,40,50}};
+ *  3D
+ *  int[][][] x = {{{1,2,3},{4,5,6}},{{7,8},{9,10,11}}};
+ *   
+ *  ****length vs length()
+ *      length is a final variable applicable for array , it 
+ *      represents size of array.
+ *      
+ *      length() is final method applicable for string objects
+ *      it returns number of characters present in the string.
+ *      
+ *      length variable applicable for arrays but not for string
+ *      objects whereas length() method applicable for strings 
+ *      but not for arrays.
+ *      
+ *      String[] s = {"a","aa","aaa"};
+ *      sopln(s.length);//valid : 3
+ *      sopln(s.length());//invalid : not applicable for arrays
+ *      sopln(s[0].length);//invalid : not applicable for strings
+ *      sopln(s[0].length());//valid
+ *      
+ *      IN MULTID ARRAYS LENGTH VARIABLE REPRESENTS ONLY BASE SIZE
+ *      BUT NOT TOTAL SIZE.
+ *      
+ *      int[][] x = new int[6][3];
+ *      sopln(x.length); 6
+ *      sopln(x[0].length); 3 
+ *      
+ *      anonymous array : sometimes we can declare an array without
+ *                        name , such type of nameless arrays are 
+ *                        called anonymous array.
+ *                        The main purpose of such array is just for
+ *                        instant use(one time usage).
+ *      Declaration of anonymous array :                   
+ *                    public static void main(String[] args)
+ *	                  {
+ *		                  sum(new int[]{10,20,30});//ano array
+ *                                or
+ *                        int[] y = new int[]{10,20,30};
+ *                        sum(y);//but this won,t be ano array               
+ *	                  } 
+ *                    public static void sum(int[] x)
+ *	                  {
+ *		                  int total=0;
+ *                        for(int x1:x)
+ *                        {
+ *                           total = total + x1;
+ *                        }
+ *                        sopln("the sum : "+total);
+ *	                  }
+ *  It will be invalid if we specify the size to array
+ *  i.e new int[3]{1,2,3}  //invalid                 
+ *                   
+ *  Array element assignment :                   
+ *        case 1: In case of primitive type of arrays as array 
+ *                elements we can provide any type which can be
+ *                implicitly promoted to declared type. 
+ *                
+ *        case 2: IN THE CASE OF OBJECT TYPE ARRAYS AS ARRAY 
+ *                ELEMENTS WE CAN PROVIDE EITHER DECLARED TYPES 
+ *                OBJECTS OR ITS CHILD CLASS OBJECTS.
+ *                EXAMPLE 1 :
+ *                Object[] a = new Object[10];
+ *                a[0]=new Integer(10);()=>used to give value
+ *                a[1]=new String("durga");
+ *                        
+ *   ****ARRAY VARIABLE ASSIGNMENTS :
+ *         case 1 : Element level promotions are not applicable 
+ *                  at array level 
+ *                  Example : char element can be promoted to
+ *                  int type whereas char array cannot be promoted
+ *                  to int array since they are object of 2 differnt
+ *                  classes which cannot be compared or converted.
+ *                  
+ * Which of the following promotions will be performed 
+ * automatically ?
+ * 1. char -> int//valid
+ * 2. char[] -> int[]   //invalid 
+ * 3. int -> double//valid
+ * 4. float -> int //invalid 
+ * 5. String -> Object //valid
+ * 6. String[] -> Object[] // valid : child to parent class
+ * 
+ *  But in the case of object type arrays child class type
+ *  array can be promoted to parent class type array.
+ *  String[] s ={"s","d"}
+ *  Object[] a = s;
+ *  
+ *         case 2 : Whenever we are assigning one array to 
+ *                  another array internal elements wont be 
+ *                  copied just reference variables will be 
+ *                  re-assigned.
+ *                  
+ *         case 3 : whenever we are assigning one array to 
+ *                  another the Dimension & types must be 
+ *                  matched. 

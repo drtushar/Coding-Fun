@@ -1,0 +1,105 @@
+	/**
+	 * Identifiers : A name in java program is called identifier
+	 * which can be used for identification purpose of 
+	 * 1.method name.
+	 * 2.variable name.
+	 * 3.class name.
+	 * 4.label name.
+                  *
+	 * Rules for java identifiers
+	 * 1.Only A-Z , a-z , 0-9 , $ and _ are allowed in identifier
+	 *    name.
+	 * 2.Identifiers can't start with digits rest all cases are
+	 *    valid.
+	 * 3.There is no length limit in java identifiers.
+	 * 4.We ONLY can't use reserved words as identifiers.
+	 * 5.All predefined class name and interface names we can 
+	 *    use as identifies.
+                  * 
+	 * RESERVED WORDS : In java their are 53 reserved words
+	 * keywords(50)                                            reserved literals(3) 
+	 * Keywords : keywords are reserved word associated with 
+	 *                    functionality. 
+	 * RESERVED LITERALS : reserved words associated with only
+	 *                                     values is called reserved literals.
+	 *                                     Their are 3 reserved literals
+	 *                                     1.true
+	 *                                     2.false
+	 *                                     3.null
+                  *
+	 *                             KEYWORDS(50)
+	 *             |                                                           |
+	 *  Used keyword(48)                  Unused keywords(2) : goto,const
+	 *         
+	 *  Keywords for Data types(8)
+	 *  1.byte
+	 *  2.short
+	 *  3.int 
+	 *  4.long
+	 *  5.float
+	 *  6.double
+	 *  7.boolean
+	 *  8.char   
+	 *  
+	 *  Keywords for flow control(11)
+	 *  1.if
+	 *  2.else
+	 *  3.switch
+	 *  4.case
+	 *  5.default
+	 *  6.while
+	 *  7.for
+	 *  8.break
+	 *  9.continue
+	 *  10.return 
+	 *  11.do
+	 *                      
+	 *  Keywords for modifiers(12)
+	 *  1.public
+	 *  2.private
+	 *  3.protected
+	 *  4.static
+	 *  5.final
+	 *  6.abstract 
+	 *  7.synchronized
+	 *  8.native
+	 *  9.strictfp(1.2version)
+	 *  10.transient
+	 *  11.volatile              
+	 *  
+	 *  Keywords for exception handling(6)
+	 *  1.try
+	 *  2.catch
+	 *  3.throw
+	 *  4.throws
+	 *  5.finally
+	 *  6.assert(1.4version)    
+	 *  
+	 *  Keywords related to class(6)
+	 *  1.class
+	 *  2.interface
+	 *  3.extends
+	 *  4.implements
+	 *  5.package
+	 *  6.import
+	 *  
+	 *  Keywords related to object(4)
+	 *  1.new
+	 *  2.instanceof
+	 *  3.super
+	 *  4.this
+	 *  
+	 *  Keywords related to return_type(1)
+	 *  1.void
+	 *  
+	 *  1.enum (1.5version) (1)
+	 *  
+	 *  ****goto and const are unused keywords and if we try to 
+	 *      use we get compile time error.
+	 *      
+	 *  null => default value for object reference. 
+	 *  
+	 *  ALL 53 RESERVED WORDS CONTAIN ONLY lower-case LETTERS.
+	 *     
+	 *  --------------------------------------------------------------------------------   
+	 */
