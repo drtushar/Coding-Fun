@@ -1,0 +1,33 @@
+DP Fibonacci Series using iteration : 
+
+
+int a = 0 , b = 1
+void fib(int n){
+	printf("%d ",a);
+	int c;
+	while(n != 1){
+		c = a + b;
+		a = b;
+		b = c;
+		printf("%d ",c);
+		n--;
+	}
+}
+
+DP using recursion : 
+
+int a = 0 , b = 1;
+void fib(int n){
+	int c;
+	c = a + b;
+	a = b;
+	b = c;
+	printf("%d ",c);
+	fib(n-1);
+}
+int main(){fib(10);return 100;}
+
+following are space optimized solution have auxiliary space : constant O(1)
+Time Complexity : O(n)
+
+Well it can be optimized more by using derived formula for fibonacci series.
