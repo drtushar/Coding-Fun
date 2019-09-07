@@ -1,0 +1,21 @@
+Dfs or Depth 1st search is recursive algorithm that uses backtracking by using data structure stack.
+
+It involves exhaustive searchs of the adjancent nodes if no adjancent node than backtracking.
+
+dfs(G,s):
+	mark s as visited
+	for all adjacent nodes w of s in g:
+		if w is not visited:
+			dfs(G,w)
+
+Time complexity : O(V+E)// V = no of vertices E = no of Edges
+
+applications: 
+1 : Path finding : 
+	1. call dfs(G,u) let u be start vertice
+	2. Use stack to keep track of the path bet start and current node
+	3. If found required node return stack content.
+
+2. Detect cycle in a graph (Wait for graph):
+	A graph has cycle if and only if we see back Edge during dfs
+	So we can run dfs and check for back edges

@@ -1,0 +1,20 @@
+Detecting loop in Linked list : 
+
+Floyds cycle detection is the most efficient way to detect loop (We can also use Dfs to only detect loop)
+
+According to the algo if  fast and slow pointer meet in a linked list than : 
+	1. There is cycle in LL
+	2. They will obvivsoly meet in loop (Child dish?)
+
+
+boolean detectLoop(struct node* root){
+	struct node* slow = root;
+	struct node* fast = root;
+	while(slow && fast && fast->next){
+		slow = slow->next;
+		fast = fast->next->next;
+		if ( slow == fast )
+			return true; 
+	}
+	return false;
+}  

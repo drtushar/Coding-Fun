@@ -1,0 +1,20 @@
+BFS or breadth first search start from selected node and starts trversing nodes layer wise
+Hence exploring the neighbour nodes first.
+
+Bfs(G,s):
+	Let Q be queue
+	Q.enqueue(s)
+	mark s as visited
+	
+	while(Q is not empty):
+		v = Q.dequeue
+		for all adjacent nodes w of v in G:
+			if w is not visited:
+				Q.enqueue(w)
+				mark w as visited
+
+Applications of Bfs : 
+1. one source , all destination(shortest) : for unweighted graph
+
+2. Social website n/w : To find people within given distance 'K' where 'K'
+			is no of levels for bfs to traverse.
