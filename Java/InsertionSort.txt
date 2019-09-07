@@ -1,0 +1,50 @@
+Insertion Sort : 
+
+As the name suggest we are supposed to insert a element in a sorted array.
+Well but we don't have a sorted array!
+
+Actually we have. We begin with consideration that we have an array with one element
+now it is no rocket science that it is considered as sorted.
+
+than after this we try to make sorted array of plus one length
+now this is the case where we have a sorted array and we have to put a new element in it.
+We continue above 2 steps till lenght of our sorted array is not equal to length of 
+actual array given.
+
+Hence based on above principles it is easy to understand than when we have a almost sorted
+array ie only a few elements are misplaced than insertion sort is good choice :)
+
+void sort(int[] ar){
+	int n = ar.length;
+	for(int i = 1 ; i < n ; i++){
+		int key = ar[i];
+		int j = i-1;
+		// Let j point to last sorted element
+
+		//Now reverse iterating on sorted array
+		//till either array length is reached or we find our insertion point
+		
+		while(j >= 0 && ar[j]>key){
+			//since ar[j] is greater than our key it deserves a higher pay :)
+			//so we give ar[j] salary of key. now key has to be satisfied with
+			//less salary.
+			ar[j+1] = ar[j];
+			j = j - 1;
+		}
+		
+		//now whatever is value of j thats what our key deserved so we give key that
+		ar[j+1] = key;
+	}
+}
+
+
+A little Optimization : 
+	Binary Insertion Sort :
+	instead of normal linear comparison y don't we use binary search to find real salary(index j) of our key
+	Well this with reduce searching time no quetions but we have to still make those linear swaps so this is 
+	a little optimization.
+
+	Don't be sad this little optimization will be really large if we use linked List instead of array
+	as in LL insertion is O(1) operation.
+
+Best case for insertion sort : when given array is already sorted O(n) else O(n*n) 
