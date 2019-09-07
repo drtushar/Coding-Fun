@@ -1,0 +1,38 @@
+Selection Sort is very simple sorting algorithm
+
+It sorts a linear Data structure like array by repeatedly finding minimum or maximum 
+element.
+
+The algorithm maintains two subdivisions
+1. Divisions 1 is already sorted(By choosing minimum again and again and again and again :( 
+2. Remaining sub division will be for sure unsorted , but to our peace its size is continuosly 
+   Decreasing and hence race of find next minimum/maximum is reduced by 1 each time.
+
+class SelectionSort{
+
+	//void since this is inplace replacement u see!
+	void sort(int[] arr){
+		int n = arr.length;
+		//0 to i-1 since at n-1 th iteration array will be already sorted :)
+		for(int i = 0 ; i < n-1 ; i--){
+			int minimumIndex = i;
+			//size of always reduces by 1 u see!
+			for(int j = i +1 ; j < n ; j++ ){
+				if(arr[minimumIndex] > arr[j]){
+					//if ur in means there is a index which have value less than minIndex element
+					minimumIndex = j;
+				}
+			}
+			//By now u got smallest elements index congo
+			swap(arr[minimumIndex],arr[i]); 
+		}
+	}
+}
+
+
+*****************************Conclusion*************************
+
+we saw that even tho algo always runs for O(n*n) but there is a small plus point abt
+algo and that is The Swap operation is performed exactly for n time in any case!
+
+Hence when memory writes are costly selection sort can be a good choice u see! 
