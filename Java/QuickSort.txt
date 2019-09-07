@@ -1,0 +1,60 @@
+Quick Sort : 
+It is a divide and conquer algorithm.
+It works on a simple principle of picking any element and then
+based on that element put all elements smaller than it to one side 
+ie this also implies that elements elements larger than our consider
+element will be to other side
+
+ok by doing so we come to exact position of our picked element in sorted array
+and hence in a single iteration we not only got one element sorted like any other algo
+but we also placed it to its correct position and point to be noted is 
+1 . we picked a random ele and found its correct position which was not possible before.
+2 . Also now we have a semi processed array.
+
+Hence we do the same act of picking a random element for 2 arrays so formed and in this 
+way we achieve sorted array fast possible using divide and conquer approach.
+
+void sort(int[] arr , int high , int low){
+	if(low < high){
+		// means array can be still divided so it is our job to divide and conquer!
+		int pi = partition(arr, low, high);
+		sort(arr , low , pi -1);
+		sort(arr , pi + 1 , high);
+	}
+}
+
+int partition(int[] arr , int low , int high){
+	//choosing a random for now lets consider.
+	int pivot = arr[high];
+	// i is the index which always point to a location which is smaller than pivot.
+	int i = low - 1;
+	for(int j = low ; j < high ; j++){
+		if(arr[j] < pivot) {
+			i++;
+			swap(arr[i],arr[j]);
+		}
+	}
+	swap(arr[i+1] , arr[high]);
+	return i+1;
+} 
+
+worst case : 
+	when pivot is always greatest or smallest element in array . O(n*n)
+	But the thing is I am very lucky so chances this occures is damm low.
+
+Best case : 
+	When pivot is always mid element in array. O(nLogn)
+	Well i am very lucky no Questions!
+
+average case :
+	this is because normal days exists! O(nLogn)
+
+
+However merge sort is generally considered better option
+when data is huge and sorted in different locations
+
+Quick Sort is inplace algo but merge sort requires O(N) extra
+Storage space.
+But never mind with linked list this is also reduced to O(1)
+
+Hence Merge operation can be implemented w/o extra space in Linked List. 
