@@ -1,0 +1,27 @@
+Bubble sort : Bubble sort is the simplest sorting algorithm (So should not be used either :)).
+
+Bubble sort works by simply swapping adjacent elements repeatedly if they are in wrong order.
+
+class BubbleSort{
+	void sort(int[] ar){
+		int n = ar.length;
+		for(int i = 0 ; i < n-1 ; i++){
+			for(int j = 0 ; j < n - i - 1 ; j++){
+				if(ar[j] > ar[j+1]){
+					swap(ar[j],ar[j+1]);
+				}
+			}
+		}
+	}
+} 
+
+Bubble sort always runs in principle for n*n time ...... But wait
+it can be optimized a little in one case.
+That case is when swap method is never called ie given array was already sorted :)
+In this case ie the best case we break both loops !
+
+hence in best case it will have complexity of O(n) else O(n^2) with calling swap so many time 
+as compared to any sorting algo in market.
+
+Space needed(Auxiliary space) : O(1) // constant we don't need any new memory to sort!
+ 
