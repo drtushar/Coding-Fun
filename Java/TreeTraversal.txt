@@ -1,0 +1,35 @@
+class Node {
+	int key;
+	Node left,right;
+	public Node(int key){
+		this.key = key;
+		left = right = null;
+	}
+}
+//In case of BST inorder traversal is non-decreasing order as output.
+void inorder(Node node){
+	if(node == null)
+		return;
+	inorder(node.left);
+	System.out.println(node.key);
+	inorder(node.right);
+}
+//Preorder Used to create copy of a tree.
+void preorder(Node node){
+	if(node == null)
+		return;
+	System.out.println(node.key);
+	preorder(node.left);
+	preorder(node.right);
+}
+//Postorder is used in deletion of tree since we delete child node as compared to parent node.
+void postorder(Node node){
+	if(node == null)
+		return;
+	postorder(node.left);
+	postorder(node.right);
+	System.out.println(node.key);
+}
+
+Time Complexity = o(n)
+Auxiliary space = if we don't consider size of stack than o(1) else o(n)
