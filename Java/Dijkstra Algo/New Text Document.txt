@@ -1,0 +1,58 @@
+Dijkstra : 
+- will not work with negative weights
+Given a weighted graph(directed/undirected) find path from single 
+source to all other nodes.
+
+In dijkstra we compute using Relaxation of all nodes in a graph starting from node which
+Has minimum possible traveling cost from source to that node.
+
+Initailly we consider all nodes at infinty distance excpect for adjacent nodes.
+
+Relaxation : 
+	if d[u] + c[u,v] < d[v] :
+		we relax v vertex ie
+		d[v] = d[u] + c[u,v]
+Time complexity(worst) : o(v*v) for a complete graph.
+
+
+*******************************************Conclusion*********************
+
+Single Source , Single Destination : 
+	A* search Algorithm
+	(Doesn't matter weighted or unweighted graph, a good heuristic should be selected)
+
+Single Source , All Destination : 
+	If we have unweighted Graph : BFS
+	
+	If we have Weighted garph:
+		
+		If Weights are positive :
+				
+			Use Dijkstra(A* with zero heuristics)
+		else:
+			Use Bellman Ford {But not for negative cycles :( }
+
+All pair shortest path : 
+	Floyd-Warshall bhau use kar!!!!
+
+
+A* Algo : 
+
+Heuristics used in A* :
+
+1. Manhatten Distance : 
+	h = abs(x2 - x1) + abs(y2 - y1)
+	// This is usefull if we have only 4 directions to look for :)
+
+2. Diagonal Distance : 
+	h = max ( abs(x2 - x1) , abs(y2 - y1) )
+	//This is useful if we have 8 directions to look for :)
+
+3. Euclidean Distance : 
+	h = sqrt( (x2 - x1)^2 + (y2 - y1)^2 )
+	//Infinity directions ....come on u are literally getting accurate distance!
+
+Limitation : 
+	Despite having time complexity of O(E) E : no of Edges
+	It doesn't always produce shortest path since it relies on tukas ie
+	heuristics/approximations to calculate next move.(Greedy bitch!) 
