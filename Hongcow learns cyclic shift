@@ -1,0 +1,490 @@
+    s = input()
+    d = {}
+    ans = 0
+    for i in range(len(s)):
+        l = s[:len(s)-1]
+        r = s[len(s)-1]
+        s = r+l
+        if s not in d:
+            d[s] = 0
+            ans += 1
+     
+    print(ans)
+
+→Judgement Protocol
+Test: #1, time: 92 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+abcd
+
+Output
+
+4
+
+Answer
+
+4
+
+Checker Log
+
+ok 1 number(s): "4"
+
+Test: #2, time: 108 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+bbb
+
+Output
+
+1
+
+Answer
+
+1
+
+Checker Log
+
+ok 1 number(s): "1"
+
+Test: #3, time: 93 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+yzyz
+
+Output
+
+2
+
+Answer
+
+2
+
+Checker Log
+
+ok 1 number(s): "2"
+
+Test: #4, time: 93 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxy
+
+Output
+
+25
+
+Answer
+
+25
+
+Checker Log
+
+ok 1 number(s): "25"
+
+Test: #5, time: 93 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zclkjadoprqronzclkjadoprqronzclkjadoprqron
+
+Output
+
+14
+
+Answer
+
+14
+
+Checker Log
+
+ok 1 number(s): "14"
+
+Test: #6, time: 93 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+Output
+
+1
+
+Answer
+
+1
+
+Checker Log
+
+ok 1 number(s): "1"
+
+Test: #7, time: 77 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+xyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxy
+
+Output
+
+2
+
+Answer
+
+2
+
+Checker Log
+
+ok 1 number(s): "2"
+
+Test: #8, time: 93 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+y
+
+Output
+
+1
+
+Answer
+
+1
+
+Checker Log
+
+ok 1 number(s): "1"
+
+Test: #9, time: 108 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+ervbfotfedpozygoumbmxeaqegouaqqzqerlykhmvxvvlcaos
+
+Output
+
+49
+
+Answer
+
+49
+
+Checker Log
+
+ok 1 number(s): "49"
+
+Test: #10, time: 109 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zyzzzyyzyyyzyyzyzyzyzyzzzyyyzzyzyyzzzzzyyyzzzzyzyy
+
+Output
+
+50
+
+Answer
+
+50
+
+Checker Log
+
+ok 1 number(s): "50"
+
+Test: #11, time: 108 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zzfyftdezzfyftdezzfyftdezzfyftdezzfyftdezzfyftde
+
+Output
+
+8
+
+Answer
+
+8
+
+Checker Log
+
+ok 1 number(s): "8"
+
+Test: #12, time: 77 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+yehcqdlllqpuxdsaicyjjxiylahgxbygmsopjbxhtimzkashs
+
+Output
+
+49
+
+Answer
+
+49
+
+Checker Log
+
+ok 1 number(s): "49"
+
+Test: #13, time: 93 ms., memory: 8 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+yyyyzzzyzzzyzyzyzyyyyyzzyzyzyyyyyzyzyyyzyzzyyzzzz
+
+Output
+
+49
+
+Answer
+
+49
+
+Checker Log
+
+ok 1 number(s): "49"
+
+Test: #14, time: 108 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zkqcrhzlzsnwzkqcrhzlzsnwzkqcrhzlzsnwzkqcrhzlzsnw
+
+Output
+
+12
+
+Answer
+
+12
+
+Checker Log
+
+ok 1 number(s): "12"
+
+Test: #15, time: 78 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+xxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxyxxy
+
+Output
+
+3
+
+Answer
+
+3
+
+Checker Log
+
+ok 1 number(s): "3"
+
+Test: #16, time: 93 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaab
+
+Output
+
+25
+
+Answer
+
+25
+
+Checker Log
+
+ok 1 number(s): "25"
+
+Test: #17, time: 108 ms., memory: 8 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aabaaabaaabaaabaaabaaabaaabaaabaaabaaabaaabaaaba
+
+Output
+
+4
+
+Answer
+
+4
+
+Checker Log
+
+ok 1 number(s): "4"
+
+Test: #18, time: 62 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+pqqpqqpqqpqqpqqpqqpqqpqqpqqpqqpqqppqppqppqppqppq
+
+Output
+
+48
+
+Answer
+
+48
+
+Checker Log
+
+ok 1 number(s): "48"
+
+Test: #19, time: 109 ms., memory: 12 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+zxkljaqzxkljaqzxkljaqzxkljaqzxrljaqzxkljaqzxkljaq
+
+Output
+
+49
+
+Answer
+
+49
+
+Checker Log
+
+ok 1 number(s): "49"
+
+Test: #20, time: 93 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
+
+Output
+
+50
+
+Answer
+
+50
+
+Checker Log
+
+ok 1 number(s): "50"
+
+Test: #21, time: 77 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz
+
+Output
+
+50
+
+Answer
+
+50
+
+Checker Log
+
+ok 1 number(s): "50"
+
+Test: #22, time: 108 ms., memory: 12 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+abcddcba
+
+Output
+
+8
+
+Answer
+
+8
+
+Checker Log
+
+ok 1 number(s): "8"
+
+Test: #23, time: 108 ms., memory: 12 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aabaabaabaacaabaabaabaacaabaabaabaacaabaabaabaac
+
+Output
+
+12
+
+Answer
+
+12
+
+Checker Log
+
+ok 1 number(s): "12"
+
+Test: #24, time: 93 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aabaabcaabaabcdaabaabcaabaabcd
+
+Output
+
+15
+
+Answer
+
+15
+
+Checker Log
+
+ok 1 number(s): "15"
+
+Test: #25, time: 93 ms., memory: 0 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+ababaababaaababaababaaaababaababaaababaababaaaa
+
+Output
+
+47
+
+Answer
+
+47
+
+Checker Log
+
+ok 1 number(s): "47"
+
+Test: #26, time: 93 ms., memory: 8 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+ababaababaaababaababaaaababaababaaababaababaaa
+
+Output
+
+23
+
+Answer
+
+23
+
+Checker Log
+
+ok 1 number(s): "23"
+
+Test: #27, time: 93 ms., memory: 8 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aaababaab
+
+Output
+
+9
+
+Answer
+
+9
+
+Checker Log
+
+ok 1 number(s): "9"
+
+Test: #28, time: 108 ms., memory: 4 KB, exit code: 0, checker exit code: 0, verdict: OK
+Input
+
+aba
+
+Output
+
+3
+
+Answer
+
+3
+
+Checker Log
+
+ok 1 number(s): "3"
+
