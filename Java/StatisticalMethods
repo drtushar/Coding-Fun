@@ -1,0 +1,72 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int total = Integer.parseInt(br.readLine());
+
+        ArrayList<Integer> ar = new ArrayList<Integer>(total);
+        for(String s : br.readLine().trim().split(" ")){
+            ar.add(Integer.parseInt(s));
+        }
+        //ar.sort(Collections.reverseOrder());
+        Collections.sort(ar);
+        //System.out.println(ar);
+        ListIterator li = ar.listIterator();
+        long sum = 0;
+        while(li.hasNext()) {
+            sum += Long.parseLong(li.next().toString());
+        }
+        double d = 1.0*sum/total;
+        System.out.println(d);
+        double median;
+        if((total & 1) == 0){
+            median = (ar.get(total/2 - 1) + ar.get(total/2))/2.0;
+        }else{
+            median = ar.get(total/2);
+        }
+        //median of population distribution
+        System.out.println(median);
+        
+        Map<Integer,Integer> hm = new HashMap<Integer,Integer>();
+        li = ar.listIterator();
+        while(li.hasNext()){
+            int i = Integer.parseInt(li.next().toString());
+            if(hm.containsKey(i)){
+                int count = (int) hm.get(i);
+                hm.put(i,count+1);
+            }else{
+                hm.put(i,1);
+            }
+        }
+        
+        //System.out.println(hm);
+        int max = 0,key = -1;
+        for(Integer i : hm.keySet()) {
+            int val = hm.get(i);
+            if(val >= max) {
+                if(val==max) {
+                    if(key>i || key==-1) {
+                        max = val;
+                        key = i;
+                        //System.out.println(max + " "+ key);
+                    }
+                }else {
+                    max = val;
+                    key = i;
+                }
+                
+                
+                //System.out.println(i + " "+ max);
+            }
+        }
+        
+        //mode
+        System.out.println(key);
+
+        br.close();
+    }
+}
+
