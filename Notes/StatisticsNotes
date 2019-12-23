@@ -1,0 +1,43 @@
+Mean : The arithmetic mean of a set of values is the quantity commonly called "the" mean or the average.
+
+The arithmetic mean is the special case M_1 of the power mean and is one of the Pythagorean means.
+
+Power Mean : M(a1,a2,a3...) =  pow( {1/n *{sum(pow(a1,p) , pow(a2,p) , pow(a3,p) ,...)} }, 1/p)
+
+Pythogorean means : The Pythagorean means are the three "classic" means A (the arithmetic mean), G (the geometric mean), and H (the harmonic mean) are sometimes known as the Pythagorean means.
+A >= G >= H
+
+harmonic mean = 1/H = 1/n * sumtn(1/xi)
+
+For a continuous distribution function, the arithmetic mean of the population is called population mean.
+
+For small samples, the sample mean is a more efficient estimator of the population mean than the 
+statistical median, and approximately pi/2 less.
+
+Here, an estimator of a parameter of a probability distribution is said to be more efficient 
+than another one if it has a smaller variance.
+In this case, the variance of the sample mean is generally less than the variance of the sample median.
+
+variance is the expectation of the squared deviation of a random variable from its mean. 
+Informally, it measures how far a set of (random) numbers are spread out from their average value.
+
+A general expression that often holds approximately is
+
+mean - mode =approx= 3(mean - median) [holds for unimodal curves]
+
+
+Statistical Median
+The median of a statistical distribution with distribution function D(x) is the value x such D(x)=1/2. 
+For a symmetric distribution, it is therefore equal to the mean.
+
+The midpoint value of a data set for which an equal number of samples are less than and greater than the value.
+For an odd sample size, this is the middle element of the sorted sample; for an even sample size, 
+this is the average of the  middle elements of the sorted sample.
+
+MODE 
+The element(s) that occur most frequently in a data set.
+
+Precision and Scale
+These are important terms to understand when formatting your output:
+Precision refers to the number of significant digits in a number.
+Scale refers to the number of significant digits to the right of the decimal point.
