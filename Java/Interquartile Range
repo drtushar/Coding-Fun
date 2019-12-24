@@ -1,0 +1,65 @@
+Interquartile Range
+
+The interquartile range of an array is the difference between its first (Q1) and third (Q3) quartiles.
+
+//Code to compute :
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new  BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+        ArrayList<Integer> ar1 = new ArrayList<Integer>();
+        ArrayList<Integer> ar2 = new ArrayList<Integer>();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for(String s:br.readLine().trim().split(" ")){
+            ar1.add(Integer.parseInt(s));
+        }
+        for(String s:br.readLine().trim().split(" ")){
+            ar2.add(Integer.parseInt(s));
+        }
+        int total = 0;
+        for(int i =0 ; i<t ; i++){
+            int k = ar1.get(i);
+            total += ar2.get(i);
+            for(int j = 0; j<ar2.get(i) ; j++){
+                arr.add(k);
+            }
+        }
+        Collections.sort(arr);
+        double q1,q3;
+        if((total&1) == 1){
+            //odd no
+            total /= 2;
+            if((total&1)==1){
+                //odd
+                q1 = arr.get(total/2);
+                q3 = arr.get(total + total/2 + 1);
+            }else{
+                //even
+                q1 = (arr.get(total/2) + arr.get(total/2-1))/2.0;
+                q3 = (arr.get(total/2 + total) + arr.get(total/2 + total + 1))/2.0;
+            }
+
+        }else{
+            //even no
+            total /= 2;
+            if((total&1)==1){
+                //odd
+                q1 = arr.get(total/2);
+                q3 = arr.get(total + total/2 + 1);
+            }else{
+                //even
+                q1 = (arr.get(total/2) + arr.get(total/2-1))/2.0;
+                q3 = (arr.get(total/2 + total) + arr.get(total/2 + total -1))/2.0;
+            }
+        }
+        System.out.println(q3 - q1);
+
+
+    }
+}
+
