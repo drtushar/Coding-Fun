@@ -1,0 +1,66 @@
+Quartile : 
+The Quartiles of a ordered dataset are 3 points that split the dataset into 4 equal groups.
+
+1st half -- median -- 2nd half
+
+The 3 quartiles are defined as :
+Q1 : (25%) It is the middle number betn smallest no in dataset and the median.(median of 1st half)
+Q2 : (50%) It is the median of the dataset.(actual median of entire dataset)
+Q3 : (75%) It is the middle number betn median and the largest number of the dataset.(median of 2nd half)
+
+
+The 5 Number summary : 
+1) Smallest number
+2) Q1
+3) Q2
+4) Q3
+5) largest number
+
+//Code to calculate Q1, Q2, Q3 of given ordered dataset : 
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int total = Integer.parseInt(br.readLine());
+        ArrayList<Integer> ar = new ArrayList<Integer>(total);
+        for(String s : br.readLine().trim().split(" ")){
+            ar.add(Integer.parseInt(s));
+        }
+        //Sorting in asc order
+        Collections.sort(ar);
+        int q1,q2,q3;
+        //Calculating Q2
+        if((total&1) == 1 ){
+            //odd number
+            q2 = ar.get(total/2);
+            total = total/2;
+            if((total&1) == 1){
+                q1 = ar.get(total/2);
+                q3 = ar.get(total + total/2 + 1);
+            }else{
+                q1 = (ar.get(total/2) + ar.get(total/2-1))/2;
+                q3 = (ar.get(total + total/2) + ar.get(total + total/2 + 1))/2;
+            }
+        }else{
+            //even number
+            q2 = (ar.get(total/2) + ar.get(total/2-1))/2;
+            total = total/2;
+            if((total&1) == 1){
+                q1 = ar.get(total/2);
+                q3 = ar.get(total/2 + total);
+            }else{
+                q1 = (ar.get(total/2) + ar.get(total/2-1))/2;
+                q3 = (ar.get(total + total/2) + ar.get(total + total/2 - 1))/2;
+            }
+        }
+        System.out.println(q1);
+        System.out.println(q2);
+        System.out.println(q3);
+        br.close();
+    }
+}
+
