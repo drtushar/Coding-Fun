@@ -1,0 +1,51 @@
+Expected Values
+The expected value of a discrete random variable,X, is more or less another way of referring to the mean (u). 
+
+The expectation value of a function f(x) in a variable x is denoted as : 
+
+E = summatn(f(xi)*p(xi))
+where p is the  probability density function.
+
+
+Variance (ro^2)
+This is the average magnitude of fluctuations of X from its expected value, (u).
+
+       ro^2 = summatn(xi - u)^2 / n
+ 
+Standard Deviation (ro)
+The standard deviation quantifies the amount of variation in a set of data values. 
+
+ro  = sqrt(Variance)
+
+
+//Code to compute Standard deviation : 
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int total = Integer.parseInt(br.readLine());
+        ArrayList<Integer> ar = new ArrayList<Integer>(total);
+        for(String s : br.readLine().trim().split(" ")){
+            ar.add(Integer.parseInt(s));
+        }
+        double u = 0;
+        ListIterator li = ar.listIterator();
+        while(li.hasNext()){
+            u += Integer.parseInt(li.next().toString());
+        }
+        u /= 1.0*total;
+        double sum = 0 ;
+        li = ar.listIterator();
+        while(li.hasNext()){
+            sum += Math.pow(Integer.parseInt(li.next().toString()) - u, 2);
+        }
+        sum /= 1.0*total;
+        sum = Math.pow(sum,0.5);
+        System.out.printf("%.1f",sum);
+    }
+}
+
