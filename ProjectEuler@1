@@ -1,0 +1,58 @@
+Multiples of 3 and 5 : 
+Find the sum of all the multiples of 3 or 5 below 1000.
+
+//Brute Force solution (dil hai ki manta nai)
+
+package com.projectEuler1;
+
+import java.io.*;
+public class Driver {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Enter value of (1 to n excl) n : ");
+		int n = Integer.parseInt(br.readLine());
+		long sum = 0;
+		for(int i = 1; i < n ; i++) {
+			if((i/3*3 == i) || (i/5*5 == i)) {
+				sum += i;
+			}
+		}
+		System.out.print("\n The answer is : " + sum);
+		br.close();
+	}
+}
+
+o/p : 
+Enter value of (1 to n excl) n : 1000
+The answer is : 233168
+
+
+//Tho we got answer with complexity o(n) but come on we can do better ;) o(1) y not(dil hai ki manta nai)
+
+//Solution using AP : 
+1+2+...+n = n(n+1)/2
+
+package com.projectEuler1;
+
+import java.io.*;
+
+@FunctionalInterface
+interface CalculateDiv {
+	long computeDivSum(int n, int p);
+}
+
+public class Driver {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Enter value of (1 to n excl) n : ");
+		int n = Integer.parseInt(br.readLine());
+		//Keep this simple!!
+		CalculateDiv cd = (a, b)->(a*((b-1)/a)*(((b-1)/a)+1))/2;
+		long result = cd.computeDivSum(3, n) + cd.computeDivSum(5, n) - cd.computeDivSum(15, n); 
+		System.out.print(result);
+	}
+}
+
+o/p : 
+Enter value of (1 to n excl) n : 1000
+23316
