@@ -1,0 +1,143 @@
+1. File
+2. FileWriter
+3. FileReader
+4. BufferedWriter
+5. BufferedReader
+6. PrintWriter
+
+File :
+  File f = new File("abc.txt");
+  //this line wont create any  physical File , 1st it will check for file named with abc.txt is available
+  //or not if available then f simply refers that file. If not available then we are just creating java file
+  //object to represent the name abc.txt.
+  //we can use java file object to represent directory also .
+Refer code no 1(createFileAndDirectory.java).
+  //note in Unix Everything is treated as a file : java file i/o is implemented based on Unix OS hence java
+  //file object can be used to represent both files and directories.
+
+File class Constructors :
+  1. File f = new File(String filename) :
+    //Creates a java file object to represent name of  file or directory in current working directory
+  2. File f = new File(String Subdirname, String filename) :
+    //Creates a java file object to represent name of  file or directory present in specified Subdirname.
+  3. File f = new File(File Subdir , String filename) :
+    //Creates a java file object to represent name of  file or directory present in specified Subdirname.
+
+Refer code no 2(FileConstructors.java).
+
+Important methods in File class :
+  1. boolean exists() :
+  2. boolean createNewFile() :
+  3. boolean mkdir() :
+  4. boolean isFile() :
+  5. boolean isDirectory() :
+  6. String[] list() : returns the names  of all files and directories present in specified directory.
+  7. long length() : returns no of files present in specified file.
+  8. boolean delete() : to delete specified file or directory.
+
+Refer code no 3(TotalNoOfFileAndDir.java)
+
+FileWriter :
+  //We can use FileWriter to write character data to the file.
+  //It has following 4 Constructor :
+  1. FileWriter fw  = new FileWriter(String filename);
+  2. FileWriter fw  = new FileWriter(File f);
+  //The above FileWriter ment for overriding of existing data instead of overridding if we want append then
+  //we have to use following Constructors :
+  3. FileWriter fw  = new FileWriter(String filename, boolean append);
+  4. FileWriter fw  = new FileWriter(File f, boolean append);
+  Note : If the specfied file is not already available then all the above constructors will create that File.
+
+  Methods :
+  1. write(int ch) :
+    //To write a single character. fw.write('a') or fw.write(97)
+  2. write(char[] ch) :
+    //To write an array of characters.
+  3. write(String s) :
+    //To write String to the file.
+  4. flush() :
+    //To give the gaurenty that total data including last character will be return to the file.
+  5. close() :
+    //To close the writer.
+Note : the main problem with FileWriter is we have to insert '\n' manually which is varied from
+system to system , it is difficulty to programmer. This is solved by BufferedWriter, PrintWriter.
+
+FileReader :
+Constructors :
+ 1. FileReader fr = new FileReader(String filename)
+ 2. FileReader fr = new FileReader(File f)
+
+Methods :
+1. int read() :
+  //It attempts to read next character from the file and returns its UNICODE value ,
+  //If next character not available then it returns -1.
+2. int read(char[] ch) :
+  //It attempts to read enough characters from the file into character array and returns
+  //number of characters copied from the file.
+3. void close()
+
+//Note : By using FileReader we can read data character by character which is not convenient to
+//programmer.
+
+//Usage of FileWriter and FileReader is not recommended because
+//1. While writing data by FileWriter we have to insert \n manually which is varied from sys to sys.
+// and difficult to programmer.
+//2. By using FileReader we can read data character by character, which is not convenient to programmer.
+
+//To overcome this problems we go for BufferedWriter & BufferedReader.
+
+BufferedWriter :
+//It can be used to write character data to the file.
+Constructors :
+  1. BufferedWriter bw = new BufferedWriter(Writer w)
+  2. BufferedWriter bw = new BufferedWriter(Writer w, int buffersize)
+
+Methods :
+  1. write(char ch)
+  2. write(char[] ch)
+  3. write(String s)
+  4. flush()
+  5. close()
+  6. newLine() :
+    //To insert a line separator.
+  //Whenever we are closing BufferedWriter automatically internal file writer will be closed.
+
+BufferedReader :
+  //Line by Line Reading data is possible here.
+Constructors :
+    1. BufferedReader br = new BufferedReader(Reader R)
+    2. BufferedReader br = new BufferedReader(Reader R, int buffersize)
+    //Note BufferedReader cant communicate directly with the file it can communicate via some Reader object.
+
+Methods  :
+1. int read()
+2. int read(char[] ch)
+3. void close()
+4. String readLine() :
+      //it attempts to read next line from the file and return its, if next line not available then
+      //it returns null.
+
+
+PrintWriter :
+Constructors :
+  1.PrintWriter pw = new PrintWriter(String filename)
+  2.PrintWriter pw = new PrintWriter(File f)
+  3.PrintWriter pw = new PrintWriter(Writer W)
+  Methods :
+    1. write(char ch)
+    2. write(char[] ch)
+    3. write(String s)
+    4. flush()
+    5. close()
+    6.println(char ch)
+    7.println(int i)
+    8.println(double d)
+    9.println(boolean b)
+    10.println(String s)
+    11.print(...)
+
+    //Data in a file can be divided into two types :
+    //1) character data : (Use Reader and writer)
+    //2) Binary data : (Use InputStream and outputStream to read and write)
+    //FileWriter has outputStream as parent class while FileReader has InputStream as parent class.
+    //BufferedWriter ani PrintWriter dont.
