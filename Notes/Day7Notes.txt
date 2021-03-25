@@ -1,0 +1,195 @@
+ * MAIN() METHOD :                                                                               
+ *   Whether class contains main method or not and whether main()
+ *   is declared according to requirement or not , this things 
+ *   won't be checked by the compiler, at run time JVM is responsible
+ *   to check this. Hence we can get runTimeException if we don't
+ *   declare main().
+ *   Main() method has :
+ *   1.public - bz then JVM can call from anywhere.
+ *   2.static - bz  without existing object JVM has to call this
+ *              method.
+ *   3.void - main() method won't return anything to JVM.
+ *   4.main - This is the name which is configured inside JVM.
+ *   5.String[] args - Command line arguments.
+ *                
+ *   Some changes are valid in java :
+ *    1.static<=>public
+ *      ie static public void main(String[] args)
+ *      Hence the order of modifier is not important.
+ *    2.main(String[] args) can be written as :
+ *      main(String []args)
+ *      main(String args[])  
+ *    3.main(String[] tushar)
+ *    4.main(String...args)
+ *    5. We can declare main method with the following modifiers
+ *       1.final
+ *       2.synchronized
+ *       3.strictfp 
+ * static final public synchronized strictfp void main(String...a)
+ * is valid.  
+ *   Inheritance concept applicable for main() method hence while
+ *   executing child class if child does not contain main() 
+ *   method than parent class main() method will be executed.
+ *   class P
+ *   {
+ *     p s v main(String[] args)
+ *     {
+ *       sopln("P class");
+ *     }
+ *   }
+ *   class C extends P
+ *   {
+ *   }
+ *   java P o/p = p class
+ *   java c o/p = p class
+ *   but if 
+ *    class C extends P
+ *   {
+ *      p s v  main(String[] args)
+ *      {
+ *        sopln("c class");
+ *      }
+ *   }
+ *   java P o/p = p class
+ *   java c o/p = c class
+ *   This is also called method hiding.
+ *   
+ *   main() method can be overload.
+ *   class T
+ *   {
+ *      public static void main(int[] a)
+	    {
+		   System.out.println("Static block 1 ");
+	    }
+	    public static void main(String[] args)
+	    {
+		   System.out.println("Main() method ");
+	    }
+ *   }
+ *   we can execute overloaded main() method explicitly
+ *   
+ *   
+ *   From 1.7 version onwards main method is mandatory to start
+ *   program execution hence even though class contains static
+ *   block it won't be executed if the class does not contain
+ *   main() method. 
+ *   
+ *   In java 7 similar static method gets executed but in java 8
+ *   similar static methods won't get executed unless called from
+ *   main() method.
+ *   class T
+ *   {
+ *     public static void m1()
+ *	   {
+ *		  System.out.println("Static block 1 ");
+ *	   }
+ *	   public static void main(String[] args)
+ *	   {
+ *		  System.out.println("Main() method ");
+ *	   }
+ *   }
+ *   java T o/p = Main() method
+ *   
+ *   Hence programs of 1.6 version can execute without writing
+ *   main() method.
+ *   
+ *   COMMAND LINE ARGUMENTS(CLA) : 
+ *                Arguments which are passed from command prompt
+ *                are called CLA.
+ *                with this CLA JVM will create an array and by 
+ *                passing that array as argument JVM will call
+ *                main() method.
+ *                
+ *   The main objective of CLA is we can customize behaviour of
+ *   the main() method.
+ *   case 1 : clas T
+ *            {
+ *               p s v m(S[] a)
+ *               {
+ *                  for(int i=0;i<a.length;i++)
+ *                  {
+ *                    sopln(a[i]);
+ *                  }
+ *               }
+ *            }
+ *   java T 1 2  
+ *   o/p = 1
+ *         2
+ *             
+ *   Within main() method CLA are available in string form.
+ *   case 2 : class T
+ *            {
+ *                p s v m(S[] a)
+ *                {
+ *                   sopln(a[0]);
+ *                }
+ *            }
+ *   java T note book
+ *   o/p : note
+ *   java T "note book"
+ *   o/p : note book
+ *    
+ *   JAVA CODING STANDARDS : 
+ *   
+ *   When ever we are writing java code it is highly recommended
+ *   to follow java coding standards.
+ *   1. When ever we are writing any component its name should
+ *      reflect the purpose of that component(functionality).
+ *      The main advantage of this approach is readability and
+ *      maintainability of cod will increase.  
+ *   package com.tushar.desh
+ *   public class Calculator
+ *   {
+ *      public static int add(int number1,int number2)
+ *      {
+ *         return number1+number2;
+ *      }
+ *   }
+ *   Coding standards for classes :
+ *   
+ *   Usually class names are nouns should start with uppercase
+ *   character and if it contains multiple words ever inner word
+ *   should start with uppercase character.
+ *   
+ *   Coding standards for interface :
+ *   
+ *   Usually interface names are adjectives should start with
+ *   uppercase characters and if it contains multiple words 
+ *   ever inner word should start with uppercase character.
+ *   
+ *   Coding standards for methods :
+ *   
+ *   Usually methods names are verbs or verb-noun combinations
+ *   with lowercase character anf if contains multiple words
+ *   ever inner word should start with uppercase character.
+ *   
+ *   Coding standards for variables :
+ *   
+ *   Usually variable names are noun and should start 
+ *   with lowercase character anf if contains multiple words
+ *   ever inner word should start with uppercase character.
+ *   
+ *   Coding standards for constants :
+ *   
+ *   Usually constant names are nouns and should contain only
+ *   uppercase characters and if it contains multiple words 
+ *   then this words are separated with underscore(_) symbol.
+ *   
+ *   Usually we can declare constants with public static and 
+ *   final modifiers.
+ *   
+ *   JAVA BEAN CODING STANDARDS : 
+ *   public class StudentBean//class name should not end with Bean
+ *   {
+ *       private String name;
+ *       public void setName(String name)
+ *       {
+ *         this.name = name;
+ *       }
+ *       public String getName()
+ *       {
+ *         return name;
+ *       }
+ *   }
+ *   A java bean is a simple java class with private properties
+ *   and public getter and setter methods.

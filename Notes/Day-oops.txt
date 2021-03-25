@@ -1,0 +1,119 @@
+*      
+ *    OOP CONCEPTS :
+ *    1.DATA HIDING(DH) : Outside person can't access our internal
+ *                    data directly or our internal data should
+ *                    not go out directly this oop feature is DH.
+ *    After validation or identification outside person can 
+ *    access our internal data.
+ *    By declaring Data Member as private we can achive data hiding
+ *    public class Account
+ *    {
+ *       private double balance;
+ *       public double getBalance()
+ *       {
+ *         //check validation
+ *         return balance;
+ *       }
+ *    }
+ *    The main advantage DH is security.Recomended modifier for
+ *    Data Members is private.But default modifier is default.
+ *    2.ABSTRACTION(A) : Hiding internal implementation and just
+ *                   highlight the set of services what we are
+ *                   offering is the concept of A.
+ *    3.ENCAPSULATION(E) : The process of binding data members
+ *                     and corresponding member functions into
+ *                     a unit is nothing but E.
+ *    The main advantage of encapsulation is we can achieve 
+ *    security but the main disadvantage of encapsulation is it
+ *    increases length of code and slows down execution.
+ *    TIGHTLY ENCAPSULATED CLASS : A class is said to TEC if &
+ *           only if each and every variable declared as private.
+ *    
+ *    5.IS-A relationship : .Also known as inheritance.
+ *           .The main advantage of IS-A relationship is code
+ *           reuse-ability.
+ *           .By using extends keyword we can implement IS-A R
+ *            
+ *    class P
+ *    {
+ *       public void m1()
+ *       {
+ *         sopln("parent");
+ *       }
+ *    }
+ *    class C extends P
+ *    {
+ *        public void m2()
+ *        {
+ *          sopln("child");
+ *        }
+ *    }                              
+ *                                      
+ *    class Test
+ *    {
+ *       p s v m(S[] a)
+ *       {
+ *        1.   P p1 = new P();  //valid
+ *             p1.m1();  //valid
+ *             p1.m2();  //invalid
+ *        2.   C c = new C();  //valid
+ *             c.m1();  //valid
+ *             c.m2();  //valid
+ *        3.   P p2 = new C();  //valid
+ *             p2.m1();  //valid
+ *             p2.m2();  //invalid
+ *        4.   C c1 = new P();  //invalid
+ *       }
+ *    }                 
+ *      
+ *    Conclusions : .Whatever methods parent has by default 
+ *                  available to the child and hence on child 
+ *                  reference we can call parent and child class
+ *                  methods.
+ *                  .Whatever method child has by default not
+ *                  not available to parent hence on parent 
+ *                  reference we can't call child specific methods
+ *                  .Parent reference can be used to hold child
+ *                  object but by using that reference we can't
+ *                  call child specific methods but we can call
+ *                  the methods present in parent class.
+ *                  .Parent reference can be used to hold child 
+ *                  object but child reference can't be used to
+ *                  hold parent object.    
+ *                   
+ *    Multiple Inheritance : A java class can't extend more than
+ *             one class at a time hence it won't provide MI.
+ *    class A extends B,C{}//invalid CE 
+ *    
+ *    Note : 1.If our class doesn't extend any other class then
+ *             only our class is direct child class of Object.
+ *        class A{}
+ *        A is child of Object.
+ *        If our class extends any other class than our class is
+ *        indirect child class of Object.
+ *        class A extends B{}
+ *        A -is-child-of--> B -is-child-Of--> Object.
+ *        This is multilevel inheritance.
+ *        either directly or indirectly java won't provide 
+ *        support for multiple inheritance with class.
+ *        
+ *    Their may be chance of ambiguity problem hence java won't
+ *    provide support for multiple inheritance.
+ *    p1 -> m1()  &  p2 -> m1()
+ *    so a child if have parent as p1 and p2 than their can be
+ *    ambiguity.
+ *    But interface can extend any number of interface 
+ *    simultaneously, hence java provide support for multiple 
+ *    inheritance with respect to interface. 
+ *    In interface ambiguity problem won't be their bz :
+ *         Even though multiple method declarations are available
+ *         but implementation is unique hence no chance of 
+ *         ambiguity problem in interfaces.         
+ *    note : strictly speaking through interfaces we wont get 
+ *           any inheritance.
+ *    Cyclic inheritance is not allowed in java as it is useless
+ *          class A extends A{}//invalid
+ *          class A extends B{}//invalid
+ *          class B extends A{}//invalid                 
+ *      
+ *    HAS-A RELATIONSHIP : NOT.UNDERSTOOD.....ERROR
