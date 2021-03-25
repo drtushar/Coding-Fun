@@ -1,0 +1,242 @@
+*   GENERICS : 
+ *             The main objective of generics are to provide
+ *             type safety and to resolve type casting problems.                                                                                   
+ *   Case 1 : Type-safety
+ *            Arrays are type-safe ie we can give the guarantee
+ *            for the type of element present inside array.
+ *            hence string array can only hold string type of
+ *            values.                                                                                              
+ *            But collections are not type-safe ie we can't give
+ *            the guarantee for the type of element present inside
+ *            collection. Hence a collection may hold different
+ *            type of values.                                                                                     
+ *       Example : 
+ *            String[] s = new String[3];
+ *            s[0]="tushar";//valid
+ *            s[1]="chitu";//valid
+ *            s[2]=new Integer(10);//invalid
+ *            
+ *            ArrayList l = new ArrayList();
+ *            l.add("tushar");//valid
+ *            l.add("chitu");//valid
+ *            l.add(new Integer(10));//valid
+ *                                                                                                     
+ *            Hence collections are not type-safe but arrays are.
+ *            
+ *   Case 2 : Type-casting 
+ *            In the case of arrays at the time of retrival it is
+ *            not required to perform type casting because their
+ *            is  guarantee for type of element present inside 
+ *            array.
+ *            String  s = new String[2];
+ *            s[0]="chitu";
+ *            string n = s[0];//valid no type-casting required.
+ *            But in the case of collections at the time of retrival
+ *            compulsary we should perform type-casting, because
+ *            their is no guarantee for type of element present
+ *            in collections.
+ *            ArrayList a = new ArrayList();
+ *            a.add("tus");
+ *            String s = a.get(0);//invalid CE : incompatible types
+ *            string s = (string)a.get(0);//valid
+ *            
+ *            To overcome above problem sun people introduced
+ *            generics concept in 1.5 version.
+ *            Hence main objectives of generics are
+ *            1. To provide type safety.
+ *            2. To resolve Type-casting problems. 
+ *            
+ *            ArrayList<String> a = new ArrayList<String>();
+ *            a.add("tus");//valid
+ *            a.add(new Integer(10));//Invalid CE :          
+ *            For this arrayList we can add only string type of
+ *            elements.
+ *            String s = a.get(0);//valid as l will only hold
+ *                                  string type values.
+ *                                  
+ *            Until 1.4 version a non generic version of arrayList
+ *            class is declared as followes : 
+ *            class ArrayList
+ *            {
+ *              add(Object o){}
+ *              Object get(int index){}
+ *            }                      
+ *            hence any thing could be added and return type was
+ *            possible of any type .                      
+ *            
+ *            class AL<T>//type parameter
+ *            {
+ *               add(T o){}
+ *               T get(int index){}
+ *            }
+ *            
+ *       T will be replaced with our provided reference type.                                                                                    
+ *            
+ *       Based on our requirement we can define our own generic
+ *       classes also(as shown above).
+ *       
+ *       class Test<T extends Number>//bounded type
+ *       {
+ *         public void m()
+ *         {
+ *           T a,b;
+ *           sopln(a+b);
+ *           sopln(a*b);
+ *           sopln(a/b);
+ *         }
+ *       }                                                                                         
+ *          
+ *       class Test<T implements Number>{} //invalid                                                                                         
+ *       class Test<T super Number>{}      //invalid                                                                                    
+ *                                                                                                
+ *      Bounded types : we can bound the type parameter for a
+ *      particular range by using extends keyword, such types
+ *      are called bounded types.
+ *      
+ *      Test<Integer> t = new Test<Integer>;//valid
+ *      Test<String> t = new Test<String>;//invalid                                                                                          
+ *                                                                                                
+ *      Syntax for Bounded type : 
+ *      class Test<T  extends x>{}
+ *      
+ *      x can be either class or interface.
+ *      if x is a class than as the type parameter  we can pass 
+ *      either x type or its child classes. 
+ *      if x is an interface than as the type parameter we can
+ *      pass either x type or its implementation classes.
+ *      
+ *      class Test<T extends Number & Runnable>{}
+ *      We can define bounded types even in combination also.
+ *      AS the type parameter we can take anything which should be 
+ *      child class of Number and which should implements Runnable.
+ *      
+ *      class Test<T extends interface1 & interface2>//valid.
+ *      class Test<T extends Runnable & Number>//invalid.
+ *      class Test<T extends Number & Integer>//invalid.
+ *      class Test<T extends Number & interface1 & interface2> valid
+ *      
+ *      We can use bounded types only by using extends keyword.
+ *      
+ *      Based on our requirement we can declare any number of
+ *      type  parameters and all this type parameters should be
+ *      separated with comma ',' .
+ *      class Test<A,B,T>{}
+ *       
+ *******Generic method and Wild-card characters?
+ *      
+ *      public static void m1(ArrayList<?> a){} can be called
+ *      by ArrayList of any type.
+ *      l=new AL<String>();
+ *      eg : m1(l);//valid
+ *                                                                                              
+ *      1. m1(AL<String> a)  
+ *         i.We can call this method by passing arraylist of 
+ *           only string type.
+ *         ii.But within the method we can only add string type
+ *            of object to the list.  
+ *      2. m1(AL<?> a)
+ *         i.We can call this method by passing arraylist of any
+ *           unknown type or any type.
+ *         ii.But within the method we cannot add anything to 
+ *            the list except NULL because we don't know the
+ *            type exactly(NULL is allowed bz its valid value
+ *            for any type).
+ *            This type of method are best suitable for read only
+ *            operation.   
+ *      3. m1(AL<? extends x> a)
+ *       'x' can be either class or interface.
+ *       case 1 : if 'x' is a class than we can call this method 
+ *                by passing arraylist of either x type or its
+ *                child classes. 
+ *                if 'x' is an interface than we can call these
+ *                method by passing arraylist of either x type
+ *                or its implementation classes.
+ *      Case 2 : But within the method we can't add anything to
+ *               the list except NULL bz we don't know the type
+ *               of x exactly.
+ *               This type of method also best suitable for 
+ *               read only operations. 
+ *      4. m1(AL<? super x> a)
+ *       'x' can be either class or interface.
+ *       case 1 : if 'x' is a class than we can call this method 
+ *                by passing arraylist of either x type or its
+ *                super classes. 
+ *                if 'x' is an interface than we can call these
+ *                method by passing arraylist of either x type
+ *                or super class of implementation class of x.
+ *       case 2 : But within the method we can add x type of 
+ *                object and NULL to the list.
+ *                
+ *    AL<String> l = new AL<String>();................valid
+ *    AL<?> l = new AL<String>();.....................valid
+ *    AL<?> l = new AL<Integer>();....................valid
+ *    AL<? extends Number> l = new AL<Integer>();.....valid
+ *    AL<? extends Number> l = new AL<String>(); ...invalid
+ *    AL<? super String> l = new AL<Object>();........valid
+ *    AL<?> l = new AL<?>();........................invalid
+ *    AL<?> l = new AL<? extends Number>();.........invalid
+ *    
+ *    We can declare type parameter either at class level or at
+ *    method level .
+ *    Declaring type parameter at class level :
+ *    class Test<T>
+ *    {
+ *      we can use 'T' within this class based on our
+ *      requirement.
+ *    }
+ *    Declaring type parameter at method level :
+ *    We have to declare type parameter just before return-type.
+ *    class Test
+ *    {
+ *       public <T>void m1(T ob)
+ *       {
+ *          We can use 'T' anywhere within this method based on
+ *          our requirement.
+ *       } 
+ *    }
+ *    On place of 'T' in above program following are allowed
+ *    T extends interface
+ *    T extends class
+ *    T extends class & interface
+ *    T extends interface1 & interface2
+ *    T extends class & interface1 & interface2
+ *    NOTE : 
+ *          1.First we have to class and then interface.
+ *          2.We can't extend more than one class.
+ *    
+ *****Communication with non-generic code :
+ *    If we send generic object to non-generic array than it 
+ *    starts behaving as non-generic object and vice versa.
+ *    
+ *  public static void m1(ArrayList d)
+ *	{
+ *		d.add(10);           //non-generic area
+ *		d.add("tushar");
+ *	}
+ *	public static void main(String[] args)
+ *	{
+ *		ArrayList<String> l = new ArrayList<String>();
+ *		l.add("chitu");
+ *		m1(l);                  //generic area
+ *      l.add(10.5)// CE :
+ *		System.out.println(l);//o/p = [chitu, 10, tushar]
+ *	}
+ *    
+ *   **The main purpose of generics is to provide type-safety
+ *     and to resolve type-casting problems.
+ *   **Generics concept applicable only at Compile time But 
+ *     not at run time.AS both Type-safety and Type-casting
+ *     are applicable at compile time.
+ *   **At the time of compilation as last step generics syntax
+ *     will be removed and hence for JVM generic syntax won't
+ *     be available. Hence following declaration are equal :
+ *     
+ *     AL l = new AL<String>();  
+ *     AL l = new AL<Integer>();
+ *     AL l = new AL<Double>();
+ *     AL l = new AL();
+ *     The following declarations are equal :
+ *     AL<String> l = new AL<String>();
+ *     AL<String> l = new AL();            
+ *     For this arrayList objects we can add only string types 
+ *     of objects. 
